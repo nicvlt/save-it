@@ -13,10 +13,10 @@ export default function Header(){
 
 const styles = {
     header: {
+        userSelect:'none',
         paddingTop:30,
         paddingBottom:25,
         textAlign:'center',
-        
       },
       title:{
         fontSize:40,

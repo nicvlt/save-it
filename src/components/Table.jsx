@@ -4,7 +4,7 @@ export default function Table({rows, handleAction}) {
     return(
         <div style={styles.table}>
             <div style={styles.tableHead}>
-                <div>Title</div>
+                <div>Description</div>
                 <div>Login</div>
                 <div>Password</div>
                 <div>Actions</div>
@@ -28,15 +28,16 @@ const styles = {
       },
       tableHead:{
         display:'grid',
-        gridTemplateColumns: '30% 20% 20% 10%',
+        gridTemplateColumns: '25% 25% 25% 10%',
         gap:10,
-        color:'#eeeeee',
+        color:'#aaaaaa',
         fontWeight:'400',
-        fontSize:15,
+        fontSize:12,
         userSelect:'none',
+        marginLeft:7,
       },
       noData:{
-        color:'#aaaaaa', 
+        color:'#eeeeee', 
         fontSize:15, 
         fontWeight:'300',
         textAlign:'center',

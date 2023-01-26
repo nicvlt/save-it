@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import Textfield from "./Textfield"
 import ButtonModal from "./ButtonModal"
 import CloseIcon from "../assets/close.svg"
-
+import './Modal.css'
 
 export default function Modal({label, isOpen, close, action, rows, setRows, defaultData}) {
     const [title, setTitle] = useState('')
@@ -79,6 +79,7 @@ export default function Modal({label, isOpen, close, action, rows, setRows, defa
             border: 'none',
             background: '#303151',
             borderRadius:5,
+            transition: 'all 0.7s ease-in-out',
           }
         }}
         >
@@ -87,6 +88,7 @@ export default function Modal({label, isOpen, close, action, rows, setRows, defa
             //animation
             onMouseEnter={() => setIsCloseHovered(true)}
             onMouseLeave={() => setIsCloseHovered(false)}
+            onMouseUp={() => setIsCloseHovered(false)}
             src={CloseIcon} 
             style={{...styles.closeIcon, transform: isCloseHovered && 'rotate(0.5turn) scale(1.1)'}} 
             //action

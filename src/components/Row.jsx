@@ -55,9 +55,9 @@ export default function Row({row, handleAction}) {
 const styles = {
     row:{
         display:'grid',
-        gridTemplateColumns: '30% 20% 20% 10%',
+        gridTemplateColumns: '25% 25% 25% 10%',
         gap:10,
-        color:'#cccccc',
+        color:'#eeeeee',
         fontWeight:'300',
         fontSize:13,
         marginTop:5,
