@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+@font-face {
+    font-family: 'password';
+    src: url('../font/password.woff2') format('woff2'),
+         url('../font/password.woff') format('woff'),
+         url('../font/password.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
