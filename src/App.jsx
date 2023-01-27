@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Table from './components/Table'
 import ButtonOpenModal from "./components/ButtonOpenModal"
 import Modal from './components/Modal'
+import {theme} from './shared/theme'
 
 export default function App() {
   const [showModalAdd, setShowModalAdd] = useState(false)
@@ -54,27 +55,63 @@ export default function App() {
 
 
   return (
-    <div style={styles.container}>
-      <Modal label={'Add a new password'} action={'Add'} isOpen={showModalAdd} close={handleCloseModalAdd}
-      rows={rows} setRows={setRows} defaultData={{'title':'','login':''}}
-      />
-      <Modal label={'Change your password'} action={'Edit'} isOpen={showModalEdit} close={handleCloseModalEdit} 
-      rows={rows} setRows={setRows} defaultData={rowToEdit}
-      />
+    <div style={styles.godContainer}>
+      <div style={styles.topSpacer}>
+        <div style={styles.square}/>
+        <svg style={styles.blob} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#FEA55B" d="M41.5,-19.1C46.5,1.9,38.2,21.6,20.4,36.5C2.6,51.4,-24.8,61.6,-39.6,51.5C-54.5,41.5,-56.8,11.1,-48.1,-15C-39.4,-41,-19.7,-62.9,-0.7,-62.7C18.2,-62.4,36.5,-40.1,41.5,-19.1Z" transform="translate(100 100)" />
+        </svg>
+      </div>
+
       <Header/>
-      <ButtonOpenModal  handleOpenModal={handleOpenModalAdd}/>
-      <Table rows={rows} handleAction={handleAction}/>
+
+      <div style={styles.container}>
+        <Modal label={'Add a new password'}
+        subtitle={'Fill the fields below to add a new password'}
+        action={'Add'} isOpen={showModalAdd} close={handleCloseModalAdd}
+        rows={rows} setRows={setRows} defaultData={{'title':'','login':''}}
+        />
+        <Modal label={'Change your password'} action={'Edit'} isOpen={showModalEdit} close={handleCloseModalEdit} 
+        rows={rows} setRows={setRows} defaultData={rowToEdit}
+        />
+        <div style={styles.tableLabel}>Your password list</div>
+        <ButtonOpenModal  handleOpenModal={handleOpenModalAdd}/>
+        <Table rows={rows} handleAction={handleAction}/>
+      </div>
     </div>
   );
 }
 
 const styles = {
-  container: {
-    width:'96vw',
-    height:'97vh',
-    backgroundColor:'#242641',
+  godContainer: {
     fontFamily:'Rubik',
     overflowX: 'hidden',
     overflowY: 'hidden',
+  },
+  blob: {
+    transform: 'translate(50%, -64%)',
+  },
+  square: {
+    height:5,
+    width:7,
+    backgroundColor: theme.darkOrange,
+    borderRadius:1.6,
+    transform: 'scale(30) translate(48%, 79%)'
+  },
+  container: {
+    width:'100vw',
+    backgroundColor: 'white',
+    marginTop:100,
+  },
+  topSpacer: {
+    backgroundColor: theme.lightOrange,
+    height:'25vh',
+    borderRadius: '0 0 0px 50px',
+  },
+  tableLabel: {
+    fontSize: 23,
+    fontWeight: 500,
+    color:'#444444',
+    marginLeft: 25,
   },
 }

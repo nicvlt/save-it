@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { theme } from "../shared/theme"
 
 export default function ButtonOpenModal({handleOpenModal}){
   const [isPressedButton, setIsPressedButton] = useState(false)
@@ -15,7 +16,7 @@ export default function ButtonOpenModal({handleOpenModal}){
       handleOpenModal(true)}}
       //style
       style={{...styles.buttonContainer, 
-      backgroundColor: isHoveredButton ? 'rgba(255,255,255,0.1)' : 'transparent',
+      backgroundColor: isHoveredButton ? theme.activableHovered : theme.activable,
       transform: isPressedButton ? 'scale(0.95)' : 'scale(1)'}}>
       <div style={{...styles.buttonText}}>
           Add
@@ -27,22 +28,17 @@ export default function ButtonOpenModal({handleOpenModal}){
 
 const styles = {
     buttonFixVoid:{
-        width:80, 
-        height:35, 
-        marginLeft:'auto', 
-        marginRight:'auto', 
-        marginTop:20,
-        marginBottom:30,
+        marginTop:30,
+        marginBottom:20,
         height:40,
         display:'flex',
-        justifyContent:'center',
         alignItems:'center',
+        marginLeft:25
     },
       buttonContainer:{
         width:80,
         height:35,
-        borderRadius:5,
-        border: '1px solid #cccccc',
+        borderRadius:12,
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
@@ -51,6 +47,6 @@ const styles = {
       buttonText:{
         fontSize:15,
         userSelect:'none',
-        color:'#eeeeee',
+        color:'white',
       },
 }

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import ReactModal from 'react-modal';
 import Textfield from "./Textfield"
 import ButtonModal from "./ButtonModal"
 import CloseIcon from "../assets/close.svg"
 import './Modal.css'
+import '../App.css'
+import { theme } from '../shared/theme'
 
-export default function Modal({label, isOpen, close, action, rows, setRows, defaultData}) {
+export default function Modal({label, isOpen, subtitle, close, action, rows, setRows, defaultData}) {
     const [title, setTitle] = useState('')
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
@@ -68,40 +70,36 @@ export default function Modal({label, isOpen, close, action, rows, setRows, defa
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex:999,
           },
           content: {
             position: 'absolute',
-            top: '70px',
-            left: '60px',
-            right: '60px',
-            bottom: '70px',
+            top: '140px',
+            left: '110px',
+            right: '110px',
+            bottom: '140px',
             border: 'none',
-            background: '#303151',
-            borderRadius:5,
+            background: 'white',
+            borderRadius: 30,
             transition: 'all 0.7s ease-in-out',
           }
         }}
         >
-          <div style={{weight:'100%', display:'flex', justifyContent:'end',}}>
-            <img 
-            //animation
-            onMouseEnter={() => setIsCloseHovered(true)}
-            onMouseLeave={() => setIsCloseHovered(false)}
-            onMouseUp={() => setIsCloseHovered(false)}
-            src={CloseIcon} 
-            style={{...styles.closeIcon, transform: isCloseHovered && 'rotate(0.5turn) scale(1.1)'}} 
-            //action
-            onClick={close}/>
-          </div>
           <div style={styles.modalTitle}>
             {label}
+          </div>
+          <div style={styles.subtitle}>
+            {subtitle}
           </div>
           <div style={styles.textfieldContainer}>
             <Textfield label='Title' onChange={setTitle} defaultData={title}/>
             <Textfield label='Login' onChange={setLogin} defaultData={login}/>
             <Textfield label='Password' onChange={setPassword}/>
-            <ButtonModal onClick={handleSubmit} title={action}/>
+            <div style={styles.button}>
+              <ButtonModal onClick={close} title='Cancel'/>
+              <ButtonModal onClick={handleSubmit} title={action}/>
+            </div>
           </div>
         </ReactModal>
     )
@@ -111,28 +109,42 @@ const styles = {
     textfieldContainer:{
         display:'grid',
         gridTemplateRows:'repeat(3, 10%)',
-        gap:40,
-        
+        gap:30,
       },
       modalTitle:{
-        color: '#cccccc',
-        fontSize: 20,
-        marginTop: 35,
-        marginBottom: 50,
+        color: '#444444',
+        fontSize: 18,
+        fontWeight: '500',
         display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
         fontFamily:'Rubik',
-        fontWeight:400,
         userSelect:'none',
+        marginTop: 90,
+        marginBottom: 10,
+        marginLeft:30,
       },
-
       closeIcon:{
+        position:'absolute',
         objectFit:'contain',
         weight:10,
         height:10,
-        filter: 'invert()',
-        padding:5,
+        padding:10,
         transition: 'ease 1s all',
       },
+      button:{
+        display:'flex',
+        alignItems:'end',
+        marginLeft:'auto',
+        marginRight:24,
+        gap:20,
+      },
+      subtitle:{
+        fontFamily:'Rubik',
+        userSelect:'none',
+        color: '#777777',
+        fontSize: 14,
+        fontWeight: '400',
+        display:'flex',
+        marginBottom: 30,
+        marginLeft:30,
+      }
 }
