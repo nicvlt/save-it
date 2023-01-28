@@ -71,7 +71,9 @@ export default function App() {
         action={'Add'} isOpen={showModalAdd} close={handleCloseModalAdd}
         rows={rows} setRows={setRows} defaultData={{'title':'','login':''}}
         />
-        <Modal label={'Change your password'} action={'Edit'} isOpen={showModalEdit} close={handleCloseModalEdit} 
+        <Modal label={'Change your password'}
+        subtitle={'Fill the fields below to change your password'}
+        action={'Edit'} isOpen={showModalEdit} close={handleCloseModalEdit} 
         rows={rows} setRows={setRows} defaultData={rowToEdit}
         />
         <div style={styles.tableLabel}>Your password list</div>
@@ -85,8 +87,8 @@ export default function App() {
 const styles = {
   godContainer: {
     fontFamily:'Rubik',
-    overflowX: 'hidden',
-    overflowY: 'hidden',
+    overflowX:'hidden',
+    
   },
   blob: {
     transform: 'translate(50%, -64%)',
@@ -109,6 +111,7 @@ const styles = {
     borderRadius: '0 0 0px 50px',
   },
   tableLabel: {
+    userSelect:'none',
     fontSize: 23,
     fontWeight: 500,
     color:'#444444',

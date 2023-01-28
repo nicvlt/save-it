@@ -15,13 +15,13 @@ export default function ButtonModal({onClick, title}){
         onMouseUp={() => {setIsPressed(false)
         }}
         //style
-        style={{...styles.button,
+        style={{...styles.button, border:`1px solid ${theme.activable}` ,
         transform: isPressed ? 'scale(0.95)' : 'scale(1)',
-        backgroundColor: isHovered ? 'rgba(59, 47, 60, 0.1)' : 'transparent',}}
+        backgroundColor: isHovered ? 'rgba(96, 87, 112, 0.2)' : 'transparent',}}
         //action
         onClick={onClick}
         >
-            <div style={{...styles.text,  color: '#444444',}}>{title}</div>
+            <div style={{...styles.text,  color: theme.activable}}>{title}</div>
         </div> : 
         <div 
         //animation
@@ -52,7 +52,7 @@ const styles = {
         marginRight:'auto',
     },
     button:{
-        border: `1px solid ${theme.activable}`,
+        border: `1px solid white`,
         height:35,
         width:80,
         marginLeft:'auto',

@@ -33,7 +33,8 @@ const styles = {
         height:40,
         display:'flex',
         alignItems:'center',
-        marginLeft:25
+        marginLeft:25,
+        textAlign:'center',
     },
       buttonContainer:{
         width:80,
@@ -42,11 +43,13 @@ const styles = {
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
+        textAlign:'center',
         transition:'ease 0.2s all',
       },
       buttonText:{
         fontSize:15,
         userSelect:'none',
         color:'white',
+        textAlign:'center',
       },
 }

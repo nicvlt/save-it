@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import '../App.css'
+import { theme } from '../shared/theme'
 
 export default function Textfield({label, onChange, defaultData}){
     const [focus, setFocus] = useState(false)
@@ -13,7 +14,13 @@ export default function Textfield({label, onChange, defaultData}){
             onChange={(e) => onChange(e.target.value)}
             type="text" 
             placeholder={label}
-            style={{...styles.textfield, border: focus ? '2px solid #cccccc' : '2px solid rgba(0,0,0,0)'}}/>
+            style={{...styles.textfield, 
+            border: focus ? `2px solid ${theme.activableHovered}`
+            : `2px solid #eeeeee`,
+            backgroundColor: focus ? 'transparent' 
+            : '#eeeeee',
+            
+            }}/>
         </div>
     )
 }
@@ -24,24 +31,24 @@ const styles = {
         display:'flex',
         flexDirection:'column',
         justifyContent:'center',
+        fontWeight:'400',
     },
     textfield: {
         WebkitAppearance: 'none',
         outline:'none',
-        padding:10,
-        fontSize:14,
-        width:'40vw',
+        padding:11,
+        fontSize:13,
+        width:'38vw',
         border:'none',
-        backgroundColor:'hsl(238, 26%, 19%)',
         marginLeft:'auto',
         marginRight:'auto',
-        borderRadius:5,
-        color:'#cccccc',
+        borderRadius:15,
+        color:'#333333',
         userSelect:'none',
         transition:'ease 0.2s all',
     },
     label:{
-        color:'#cccccc',
+        color:'#777777',
         fontSize:12,
         marginLeft:50,
         marginBottom:3,
