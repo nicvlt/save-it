@@ -1,11 +1,13 @@
 # saveIT
-saveIT is a desktop application that allows people to manage their passwords built with Tauri/ReactJS
+saveIT is a desktop application that allows people to manage their passwords built with Tauri/ReactJS.
 
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com) to run saveIT.
 
 ```bash
+git clone https://github.com/nicvlt/save-it.git
+cd save-it
 npm run tauri dev
 ```
 
