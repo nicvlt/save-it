@@ -1,17 +1,8 @@
 .ReactModal__Overlay {
     opacity: 0.6;
-    transition: opacity 0.4s ease-out;
+    transition: opacity 0.2s ease-out;
 }
 
 .ReactModal__Overlay--after-open{
     opacity: 1;
-}
-
-.ReactModal__Content {
-    transform:scale(0.8);
-    transition: all 0.1s ease-out;
-}
-
-.ReactModal__Content--after-open{
-    transform: scale(1);
 }
