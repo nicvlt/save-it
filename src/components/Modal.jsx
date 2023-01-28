@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import ReactModal from 'react-modal';
 import Textfield from "./Textfield"
 import ButtonModal from "./ButtonModal"
-import CloseIcon from "../assets/close.svg"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Modal.css'
-import { theme } from '../shared/theme'
 
 export default function Modal({label, isOpen, subtitle, close, action, rows, setRows, defaultData}) {
     const [title, setTitle] = useState('')
@@ -33,8 +33,20 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
         close()
     }
 
+    const handleToast = () => {
+      toast.error('Please fill all the fields', {
+        position: "bottom-center",
+        zIndex: 9999,
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+
     const handleAddRow = () => {
-        if(title === '' || login === '' || password === '') return
         const newRow = {title, login, password}
         if(rows[0].title === '' && rows[0].login === '' && rows[0].password === '')
         {
@@ -52,8 +64,12 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
     }
 
     const handleSubmit = () => {
-        if(action==='Add') handleAddRow()
-        else if(action==='Edit') handleEditRow()
+      if(title === '' || login === '' || password === '') {
+        handleToast()
+        return
+      }
+      if(action==='Add') handleAddRow()
+      else if(action==='Edit') handleEditRow()
     }
 
     return(
@@ -101,7 +117,9 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
               </div>
             </div>
           </div>
+          <ToastContainer />
         </ReactModal>
+        
     )
 }
 
