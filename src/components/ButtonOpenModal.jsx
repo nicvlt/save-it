@@ -28,7 +28,7 @@ export default function ButtonOpenModal({handleOpenModal}){
 
 const styles = {
     buttonFixVoid:{
-        marginTop:30,
+        marginTop:20,
         marginBottom:20,
         height:40,
         display:'flex',
@@ -47,7 +47,7 @@ const styles = {
         transition:'ease 0.2s all',
       },
       buttonText:{
-        fontSize:15,
+        fontSize:13,
         userSelect:'none',
         color:'white',
         textAlign:'center',

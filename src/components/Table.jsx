@@ -2,7 +2,7 @@ import Row from './Row'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Table({rows, handleAction}) {
+export default function Table({rows, handleAction, search}) {
   const handleToast = () => {
     toast.success('Copied to clipboard', {
       position: "bottom-center",
@@ -16,19 +16,22 @@ export default function Table({rows, handleAction}) {
       });
   }
 
-    return(
-        <div style={styles.table}>
-          <div style={styles.tableHead}>
-              <div>Description</div>
-              <div>Login</div>
-              <div>Password</div>
-              <div>Actions</div>
-          </div>
-          <div style={styles.solidLine}/>
-          {JSON.stringify(rows[0]) === JSON.stringify({'title':'', 'login':'', 'password':''}) ? <div style={styles.noData}>No passwords saved</div> : rows.map((row, index) => <Row key={index} row={row} handleAction={handleAction} handleToast={handleToast}/>)}
-          <ToastContainer />
-      </div>
-    )
+  const showRows = JSON.stringify(rows[0]) === JSON.stringify({'title':'', 'login':'', 'password':''}) ? <div style={styles.noData}>No passwords saved</div> : rows.map((row, index) => <Row key={index} row={row} handleAction={handleAction} handleToast={handleToast}/>)
+  const showSearch = search === '' ? showRows : showRows.filter((row) => row.props.row.title.toLowerCase().includes(search.toLowerCase()))
+
+  return(
+      <div style={styles.table}>
+        <div style={styles.tableHead}>
+            <div>Description</div>
+            <div>Login</div>
+            <div>Password</div>
+            <div>Actions</div>
+        </div>
+        <div style={styles.solidLine}/>
+        {showSearch}
+        <ToastContainer />
+    </div>
+  )
 }
 
 const styles = {

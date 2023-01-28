@@ -65,7 +65,7 @@ const styles = {
     },
     text:{
         fontFamily:'Rubik',
-        fontSize:14,
+        fontSize:13,
         color:'white',
         userSelect:'none',
     }

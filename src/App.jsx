@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Table from './components/Table'
 import ButtonOpenModal from "./components/ButtonOpenModal"
 import Modal from './components/Modal'
+import Searchbar from "./components/Searchbar"
 import {theme} from './shared/theme'
 
 export default function App() {
@@ -11,6 +12,8 @@ export default function App() {
   const [showModalEdit, setShowModalEdit] = useState(false)
   const [rows, setRows] = useState([{'title':'', 'login':'', 'password':''}])
   const [rowToEdit, setRowToEdit] = useState({'title':'', 'login':'', 'password':''})
+  const [search, setSearch] = useState('')
+
 
   useEffect(() => {
     const localRows = JSON.parse(localStorage.getItem('rows'))
@@ -21,7 +24,7 @@ export default function App() {
     if(actionToPerform === 'edit'){
       //TODO : edit the row with the new values in a modal
       setRowToEdit(row)
-      setShowModalEdit(true)
+      handleOpenModalEdit()
     } else if(actionToPerform === 'delete'){
       //TODO : delete the row
       if(rows.length === 1) {
@@ -34,6 +37,10 @@ export default function App() {
         localStorage.setItem('rows', JSON.stringify(newRows))
       }
     }
+  }
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
   }
 
   const handleCloseModalAdd = (type) => {
@@ -77,8 +84,11 @@ export default function App() {
         rows={rows} setRows={setRows} defaultData={rowToEdit}
         />
         <div style={styles.tableLabel}>Your password list</div>
-        <ButtonOpenModal  handleOpenModal={handleOpenModalAdd}/>
-        <Table rows={rows} handleAction={handleAction}/>
+        <div style={styles.buttons}>
+          <ButtonOpenModal  handleOpenModal={handleOpenModalAdd}/>
+          <Searchbar onChange={handleSearch} searchValue={search}/>
+        </div>
+        <Table rows={rows} handleAction={handleAction} search={search}/>
       </div>
     </div>
   );
@@ -117,4 +127,10 @@ const styles = {
     color:'#444444',
     marginLeft: 25,
   },
+  buttons:{
+    display:'grid',
+    gridTemplateColumns:'22% 22%',
+    alignItems:'center',
+    marginTop:10,
+  }
 }
