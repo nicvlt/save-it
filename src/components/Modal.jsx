@@ -4,14 +4,12 @@ import Textfield from "./Textfield"
 import ButtonModal from "./ButtonModal"
 import CloseIcon from "../assets/close.svg"
 import './Modal.css'
-import '../App.css'
 import { theme } from '../shared/theme'
 
 export default function Modal({label, isOpen, subtitle, close, action, rows, setRows, defaultData}) {
     const [title, setTitle] = useState('')
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const [isCloseHovered, setIsCloseHovered] = useState(false)
 
     useEffect(()=>{
         if(!defaultData) return
@@ -75,10 +73,10 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
           },
           content: {
             position: 'absolute',
-            top: '139px',
+            top: '137px',
             left: '110px',
             right: '110px',
-            bottom: '139px',
+            bottom: '137px',
             border: 'none',
             background: 'white',
             borderRadius: 30,
