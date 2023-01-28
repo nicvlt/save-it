@@ -10,7 +10,6 @@
 
 ::-webkit-scrollbar {
      width: 10px;
-     transition: ease 1s all;
 }
 
 /* Track */
@@ -21,6 +20,7 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
      background: #dddddd;
+     border-radius:10px;
 }
 
 /* Handle on hover */

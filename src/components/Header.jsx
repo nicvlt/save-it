@@ -17,13 +17,13 @@ export default function Header(){
 
 const styles = {
   container:{
-    position:'absolute',
+    display:'flex',
+    justifyContent:'center',
     marginLeft:'auto',
     marginRight:'auto',
     top:'12vh',
-    left:'50%',
-    transform:'translate(-50%,0)',
     zIndex:1,
+    transform: 'translate(0, -70%)',
   },
   header: {
       borderRadius:30,

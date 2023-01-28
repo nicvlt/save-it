@@ -113,7 +113,6 @@ const styles = {
   container: {
     width:'100vw',
     backgroundColor: 'white',
-    marginTop:100,
   },
   topSpacer: {
     backgroundColor: theme.lightOrange,

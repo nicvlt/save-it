@@ -28,7 +28,9 @@ export default function Table({rows, handleAction, search}) {
             <div>Actions</div>
         </div>
         <div style={styles.solidLine}/>
-        {showSearch}
+        <div style={styles.tableContent}>
+          {showSearch}
+        </div>
         <ToastContainer />
     </div>
   )
@@ -46,8 +48,8 @@ const styles = {
       },
       table:{
         padding:10,
-        height:320,
-      },
+        height:290,
+        },
       tableHead:{
         width:'90%',
         marginLeft:'auto',
@@ -66,4 +68,9 @@ const styles = {
         textAlign:'center',
         marginTop:20,
       },
+      tableContent:{
+        height:260,
+        overflow: 'overlay',
+        transition: 'all 0.3s ease',
+      }
 }    
