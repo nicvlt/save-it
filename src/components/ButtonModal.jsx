@@ -17,7 +17,7 @@ export default function ButtonModal({onClick, title}){
         //style
         style={{...styles.button, border:`1px solid ${theme.activable}` ,
         transform: isPressed ? 'scale(0.95)' : 'scale(1)',
-        backgroundColor: isHovered ? 'rgba(96, 87, 112, 0.2)' : 'transparent',}}
+        backgroundColor: isHovered ? 'rgba(0, 0, 0, 0.06)' : 'transparent',}}
         //action
         onClick={onClick}
         >

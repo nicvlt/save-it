@@ -104,11 +104,11 @@ const styles = {
     transform: 'translate(50%, -64%)',
   },
   square: {
-    height:5,
-    width:7,
+    height:4,
+    width:5,
     backgroundColor: theme.darkOrange,
-    borderRadius:1.6,
-    transform: 'scale(30) translate(48%, 79%)'
+    borderRadius:1.2,
+    transform: 'scale(30) translate(48%, 110%)'
   },
   container: {
     width:'100vw',
