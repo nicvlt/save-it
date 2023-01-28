@@ -75,10 +75,10 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
           },
           content: {
             position: 'absolute',
-            top: '140px',
+            top: '139px',
             left: '110px',
             right: '110px',
-            bottom: '140px',
+            bottom: '139px',
             border: 'none',
             background: 'white',
             borderRadius: 30,
@@ -86,19 +86,21 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
           }
         }}
         >
-          <div style={styles.modalTitle}>
-            {label}
-          </div>
-          <div style={styles.subtitle}>
-            {subtitle}
-          </div>
-          <div style={styles.textfieldContainer}>
-            <Textfield label='Title' onChange={setTitle} defaultData={title}/>
-            <Textfield label='Login' onChange={setLogin} defaultData={login}/>
-            <Textfield label='Password' onChange={setPassword}/>
-            <div style={styles.button}>
-              <ButtonModal onClick={close} title='Cancel'/>
-              <ButtonModal onClick={handleSubmit} title={action}/>
+          <div style={{overflow:'hidden'}}>
+            <div style={styles.modalTitle}>
+              {label}
+            </div>
+            <div style={styles.subtitle}>
+              {subtitle}
+            </div>
+            <div style={styles.textfieldContainer}>
+              <Textfield label='Title' onChange={setTitle} defaultData={title}/>
+              <Textfield label='Login' onChange={setLogin} defaultData={login}/>
+              <Textfield label='Password' onChange={setPassword}/>
+              <div style={styles.button}>
+                <ButtonModal onClick={close} title='Cancel'/>
+                <ButtonModal onClick={handleSubmit} title={action}/>
+              </div>
             </div>
           </div>
         </ReactModal>
