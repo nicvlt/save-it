@@ -49,6 +49,7 @@ const styles = {
       table:{
         padding:10,
         height:290,
+        userSelect:'none',
         },
       tableHead:{
         width:'90%',

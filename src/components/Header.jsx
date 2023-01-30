@@ -5,7 +5,7 @@ export default function Header(){
     return(
         <div style={styles.container}>
           <div style={styles.logo}>
-            <img src={Logo} alt="logo" 
+            <img src={Logo} alt="logo" draggable='false'
             style={{width:30, height:30}}/>
           </div>
           <div style={styles.header}>
@@ -29,6 +29,7 @@ const styles = {
     top:'12vh',
     zIndex:1,
     transform: 'translate(0, -70%)',
+    userSelect:'none',
   },
   header: {
       borderRadius:30,

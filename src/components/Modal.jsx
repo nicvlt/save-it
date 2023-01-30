@@ -72,6 +72,11 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
       else if(action==='Edit') handleEditRow()
     }
 
+    const handleKeyPress = (e) => {
+      if(e.key === 'Escape') close()
+      if(e.key === 'Enter') handleSubmit()
+    }
+
     return(
         <ReactModal
         ariaHideApp={false}
@@ -100,7 +105,7 @@ export default function Modal({label, isOpen, subtitle, close, action, rows, set
           }
         }}
         >
-          <div style={{overflow:'hidden'}}>
+          <div style={{overflow:'hidden'}} onKeyUp={handleKeyPress}>
             <div style={styles.modalTitle}>
               {label}
             </div>

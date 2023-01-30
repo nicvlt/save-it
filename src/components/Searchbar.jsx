@@ -28,15 +28,17 @@ export default function Searchbar({onChange, searchValue}) {
 const styles = {
     container:{
         display:'flex',
+        transition:'ease 0.2s all',
+        userSelect:'none',
     },
     input:{
         WebkitAppearance: 'none',
         fontFamily:'Rubik',
         padding: '8px 30px 8px 12px',
         borderRadius:10,
-        transition:'ease 0.2s all',
         width:100,
         color:'#333333',
+        outline:'none',
     },
     icon:{
         height:12,
