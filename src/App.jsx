@@ -20,13 +20,12 @@ export default function App() {
     if(localRows) setRows(localRows)
   },[])
 
+  //TODO: add a confirmation modal when deleting a row
   const handleAction = (row, actionToPerform) => {
     if(actionToPerform === 'edit'){
-      //TODO : edit the row with the new values in a modal
       setRowToEdit(row)
       handleOpenModalEdit()
     } else if(actionToPerform === 'delete'){
-      //TODO : delete the row
       if(rows.length === 1) {
         setRows([{'title':'', 'login':'', 'password':''}])
         localStorage.setItem('rows', JSON.stringify([{'title':'', 'login':'', 'password':''}]))
