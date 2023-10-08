@@ -8,6 +8,7 @@ Use the package manager [npm](https://www.npmjs.com) to run saveIT.
 ```bash
 git clone https://github.com/nicvlt/save-it.git
 cd save-it
+npm install
 npm run tauri dev
 ```
 
